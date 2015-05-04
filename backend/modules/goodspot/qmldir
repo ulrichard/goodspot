@@ -1,0 +1,3 @@
+module goodspot
+plugin goodspotbackend
+

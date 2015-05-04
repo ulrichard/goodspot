@@ -5,18 +5,13 @@
 #include <QObject>
 
 //Bluetooth stuff.
-//Remember to include QtConnectivity in the .pro file!
-#include <QtConnectivity/QBluetoothAddress>
-#include <QtConnectivity/QBluetoothSocket>
-#include <QtConnectivity/QBluetoothUuid>
+#include <QtBluetooth/QBluetoothAddress>
+#include <QtBluetooth/QBluetoothSocket>
+#include <QtBluetooth/QBluetoothUuid>
 
 #include <QtCore/QDataStream>
 #include <QtCore/QByteArray>
 #include <QtCore/QStringList>
-
-using QTM_PREPEND_NAMESPACE(QBluetoothSocket);
-using QTM_PREPEND_NAMESPACE(QBluetoothAddress);
-using QTM_PREPEND_NAMESPACE(QBluetoothUuid);
 
 class SpotConnect : public QObject
 {
@@ -37,7 +32,7 @@ public:
         lon=0;
 
         // Connect to service
-        socket = new QBluetoothSocket(QBluetoothSocket::RfcommSocket);
+        socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
         adr=new QBluetoothAddress(address);
         uuid=new QBluetoothUuid(QString("00001101-0000-1000-8000-00805F9B34FB"));
         qDebug()<<"Created socket to "<<adr->toString();
@@ -107,7 +102,7 @@ public:
         if(!this->isConnected()) return false;
 
         qDebug()<<"Trying to checkin:"<<text;
-        QByteArray bytes=text.toAscii();
+        QByteArray bytes=text.toLatin1();
         char data[512];
         int len;
         data[0]=0xAA; //preamble

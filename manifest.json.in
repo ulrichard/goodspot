@@ -1,0 +1,17 @@
+{
+    "name": "@APP_ID@",
+    "description": "Send custom messages or enable tracking with the SPOT connect satellite messenger.",
+    "architecture": "@CLICK_ARCH@",
+    "title": "@APP_NAME@",
+    "hooks": {
+        "spotconnect": {
+            "apparmor": "goodspot.apparmor",
+            "desktop":  "goodspot.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Richard Ulrich <richi@paraeasy.ch>",
+    "framework" : "ubuntu-sdk-14.10"
+}
+
+
