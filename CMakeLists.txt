@@ -66,10 +66,10 @@ add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/
                     DEPENDS spot_connectbackend spot_connectbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
-add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/spot_connect.qml
-                    DEPENDS spot_connectbackend spot_connectbackend-qmldir
+add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/goodspot.qml
+                    DEPENDS goodspotbackend goodspotbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 # No op custom target for all not compiled files, so they show up in the QtCreator project tree
-add_custom_target("spot_connect_ClickFiles" ALL SOURCES "goodspot.apparmor" "manifest.json.in")
+add_custom_target("goodspot_ClickFiles" ALL SOURCES "goodspot.apparmor" "manifest.json.in")
 

@@ -1,7 +1,7 @@
-import QtQuick 1.1
-import com.nokia.meego 1.0
-//import QtMobility.connectivity 1.2
-//import QtMobility.sensors 1.2
+import QtQuick 2.0
+//import com.nokia.meego 1.0
+import QtMobility.connectivity 1.2
+import QtMobility.sensors 1.2
 
 
 Page {
